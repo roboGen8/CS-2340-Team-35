@@ -14,6 +14,7 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.content.Intent;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -53,8 +54,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             "foo@example.com:hello", "bar@example.com:world"
     };
 
-    private static final HashMap<String, String> credentials = new HashMap<>();
-    String v = credentials.put("foo@example.com", "password");
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -94,6 +93,24 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View view) {
                 attemptLogin();
+            }
+        });
+
+        Button mRegistrationButton = (Button) findViewById(R.id.register);
+        mRegistrationButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Replace this later
+                finish();
+            }
+        });
+
+        Button mCancelButton = (Button) findViewById(R.id.cancel);
+        mCancelButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Replace this later
+                finish();
             }
         });
 
@@ -181,22 +198,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
-        }
-
-        // Determine if the credentials were correct
-        if (!credentials.containsKey(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
-            cancel = true;
-        } else {
-            if (!credentials.get(email).equals(password)) {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                focusView = mPasswordView;
-                counter--;
-                cancel = true;
-            } else {
-                cancel = false;
-            }
         }
 
         if (cancel) {
@@ -346,7 +347,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
 
             // TODO: register the new account here.
-            return true;
+            return false;
         }
 
         @Override
@@ -355,7 +356,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                finish();
+                Intent intent = new Intent(getApplicationContext(), test.class);
+                startActivity(intent);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
