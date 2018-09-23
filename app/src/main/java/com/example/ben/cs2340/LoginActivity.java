@@ -30,6 +30,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -51,6 +52,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
+
+    private static final HashMap<String, String> credentials = new HashMap<>();
+    String v = credentials.put("foo@example.com", "password");
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -61,6 +65,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+
+    // Counter to disable login after a certain number of failed attempts
+    int counter = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,7 +144,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 
-
     /**
      * Attempts to sign in or register the account specified by the login form.
      * If there are form errors (invalid email, missing fields, etc.), the
@@ -175,6 +181,22 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
+        }
+
+        // Determine if the credentials were correct
+        if (!credentials.containsKey(email)) {
+            mEmailView.setError(getString(R.string.error_invalid_email));
+            focusView = mEmailView;
+            cancel = true;
+        } else {
+            if (!credentials.get(email).equals(password)) {
+                mPasswordView.setError(getString(R.string.error_incorrect_password));
+                focusView = mPasswordView;
+                counter--;
+                cancel = true;
+            } else {
+                cancel = false;
+            }
         }
 
         if (cancel) {
