@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.ben.cs2340.model.Accounts;
 import com.example.ben.cs2340.model.Credentials;
 import com.example.ben.cs2340.R;
+import com.example.ben.cs2340.model.Model;
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -33,12 +34,12 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     private String _major = "NA";
 
     /* ***********************
-       Data for student being edited.
+       Data for account being edited.
      */
     private Accounts _account;
 
     /* ***********************
-       flag for whether this is a new student being added or an existing student being edited;
+       flag for whether this is a new account being added or an existing student being edited;
      */
     private boolean editing;
 
@@ -55,7 +56,10 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
          * Grab the dialog widgets so we can get info for later
          */
         nameField = (EditText) findViewById(R.id.name_input);
+        usernameField = (EditText) findViewById(R.id.username_input);
+        passwordField = (EditText) findViewById(R.id.password_input);
         credentialsSpinner = (Spinner) findViewById(R.id.credentials_spinner);
+
 
         /*
           Set up the adapter to display the allowable majors in the spinner
@@ -71,20 +75,21 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
      * Button handler for the add new student button
      * @param view the button
      */
-    public void onAddPressed(View view) {
+    public void onRegisterPressed(View view) {
         Log.d("Edit", "Add Student");
         Model model = Model.getInstance();
 
-        _student.setName(nameField.getText().toString());
-        _student.setMajor((String) majorSpinner.getSelectedItem());
-        _student.setClassStanding((ClassStanding) classSpinner.getSelectedItem());
+        _account.setName(nameField.getText().toString());
+        _account.setUsername(usernameField.getText().toString());
+        _account.setPassword(passwordField.getText().toString());
+        _account.setCredentials((Credentials) credentialsSpinner.getSelectedItem());
 
-        Log.d("Edit", "Got new student data: " + _student);
-        if (!editing) {
-            model.addStudent(_student);
-        }  else {
-            model.replaceStudentData(_student);
-        }
+        Log.d("Edit", "Got new student data: " + _account);
+//        if (!editing) {
+//            model.addAccount(_account);
+//        }  else {
+//            model.replaceStudentData(_student);
+//        }
 
         finish();
     }
@@ -99,14 +104,14 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         finish();
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-          _major = parent.getItemAtPosition(position).toString();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-        _major = "NA";
-    }
+//    @Override
+//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//
+//          _major = parent.getItemAtPosition(position).toString();
+//    }
+//
+//    @Override
+//    public void onNothingSelected(AdapterView<?> parent) {
+//        _major = "NA";
+//    }
 }

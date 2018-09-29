@@ -10,16 +10,68 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="cs2340.gatech.edu.lab3.controllers.EditStudentActivity"
-    tools:showIn="@layout/activity_edit_student">
+    tools:context="com.example.ben.cs2340.controllers.RegisterActivity"
+    tools:showIn="@layout/activity_">
+
+    <EditText
+        android:id="@+id/name_input"
+        android:layout_width="305dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="14sp" />
 
     <TextView
-        android:text=""
+        android:id="@+id/Username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/student_id_field" />
+        android:layout_below="@+id/name_input"
+        android:layout_toEndOf="@+id/student_id_field"
+        android:text="Username" />
+
+    <EditText
+        android:id="@+id/username_input"
+        android:layout_width="305dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_alignStart="@+id/student_id_field"
+        android:layout_marginTop="65dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Username"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/password_input"
+        android:layout_width="305dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_alignStart="@+id/student_id_field"
+        android:layout_marginTop="123dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Password"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username_input"
+        android:layout_alignStart="@+id/student_id_field"
+        android:text="Password" />
+
+    <TextView
+        android:id="@+id/Credentials"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/student_id_field"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="204dp"
+        android:text="Credentials" />
 
     <Spinner
         android:id="@+id/credentials_spinner"
@@ -27,62 +79,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="144dp" />
-
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/student_id_field"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="91dp"
-        android:text="Username" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/student_id_field"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="208dp"
-        android:text="Credentials" />
-
-    <EditText
-        android:id="@+id/name_input"
-        android:layout_width="305dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/name"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:textSize="14sp" />
-
-    <EditText
-        android:id="@+id/username_input"
-        android:layout_width="305dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/name"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="109dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Username"
-        android:textSize="14sp" />
+        android:layout_marginBottom="162dp" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/student_id_field"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="17dp"
         android:layout_marginTop="-19dp"
         android:text="Name:" />
 
@@ -93,7 +96,7 @@
         android:layout_alignStart="@+id/student_id_field"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="44dp"
-        android:onClick="onAddPressed"
+        android:onClick="onRegisterPressed"
         android:text="Register" />
 
     <Button
@@ -106,4 +109,5 @@
         android:layout_toEndOf="@+id/register_button"
         android:onClick="onCancelPressed"
         android:text="Cancel" />
+
 </RelativeLayout>
