@@ -314,6 +314,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         int IS_PRIMARY = 1;
     }
 
+    private void onLoginRegisterPressed(View view) {
+        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+    }
+
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.

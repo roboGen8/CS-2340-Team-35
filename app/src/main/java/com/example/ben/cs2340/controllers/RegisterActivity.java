@@ -55,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         /**
          * Grab the dialog widgets so we can get info for later
          */
-        nameField = (EditText) findViewById(R.id.name_input);
+//        nameField = (EditText) findViewById(R.id.name_input);
         usernameField = (EditText) findViewById(R.id.username_input);
         passwordField = (EditText) findViewById(R.id.password_input);
         credentialsSpinner = (Spinner) findViewById(R.id.credentials_spinner);
@@ -84,6 +84,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         _account.setUsername(usernameField.getText().toString());
         _account.setPassword(passwordField.getText().toString());
         _account.setCredentials((Credentials) credentialsSpinner.getSelectedItem());
+
+
 
         Log.d("Edit", "Got new student data: " + _account);
 //        if (!editing) {
