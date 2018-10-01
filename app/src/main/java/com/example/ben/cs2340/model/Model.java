@@ -63,7 +63,7 @@ public class Model {
      * get the Accountss
      * @return a list of the Accountss in the app
      */
-    public List<Accounts> getAccountss() { return _accounts; }
+    public List<Accounts> getAccounts() { return _accounts; }
 
     /**
      * add a Accounts to the app.  checks if the Accounts is already entered

@@ -11,14 +11,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.ben.cs2340.controllers.RegisterActivity"
-    tools:showIn="@layout/activity_">
+    tools:showIn="@layout/activity_register"
+    >
 
     <EditText
         android:id="@+id/name_input"
         android:layout_width="305dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
-        android:layout_marginTop="4dp"
+        android:layout_alignStart="@+id/username_input"
+        android:layout_marginTop="21dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
@@ -29,7 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name_input"
-        android:layout_toEndOf="@+id/student_id_field"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/username_input"
         android:text="Username" />
 
     <EditText
@@ -37,8 +40,8 @@
         android:layout_width="305dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
-        android:layout_alignStart="@+id/student_id_field"
-        android:layout_marginTop="65dp"
+        android:layout_alignStart="@+id/Username"
+        android:layout_marginTop="95dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Username"
@@ -49,8 +52,8 @@
         android:layout_width="305dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
-        android:layout_alignStart="@+id/student_id_field"
-        android:layout_marginTop="123dp"
+        android:layout_alignStart="@+id/username_input"
+        android:layout_marginTop="176dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Password"
@@ -58,17 +61,18 @@
 
     <TextView
         android:id="@+id/Password"
-        android:layout_width="wrap_content"
+        android:layout_width="73dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/username_input"
-        android:layout_alignStart="@+id/student_id_field"
+        android:layout_alignStart="@+id/password_input"
+        android:layout_marginTop="16dp"
         android:text="Password" />
 
     <TextView
         android:id="@+id/Credentials"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/student_id_field"
+        android:layout_alignStart="@+id/Password"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="204dp"
         android:text="Credentials" />
@@ -85,7 +89,9 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/student_id_field"
+        android:layout_below="@+id/credentials_spinner"
+        android:layout_alignStart="@+id/Username"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="-19dp"
         android:text="Name:" />
 
@@ -93,7 +99,7 @@
         android:id="@+id/register_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/student_id_field"
+        android:layout_alignStart="@+id/name"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="44dp"
         android:onClick="onRegisterPressed"

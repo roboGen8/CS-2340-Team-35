@@ -31,12 +31,13 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     /* ************************
        Keeping track of spinner changes.  Not really used right now, probably don't need this.
      */
-    private String _major = "NA";
+//    private String _major = "NA";
 
     /* ***********************
        Data for account being edited.
      */
     private Accounts _account;
+    private Credentials credentials = Credentials.USER;
 
     /* ***********************
        flag for whether this is a new account being added or an existing student being edited;
@@ -49,7 +50,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         setContentView(R.layout.activity_register);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
 
         /**
@@ -66,9 +66,10 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
          */
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, Credentials.values());
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, Credentials.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         credentialsSpinner.setAdapter(adapter);
+    }
 
 
     /**
@@ -104,14 +105,15 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         finish();
     }
 
-//    @Override
-//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//
-//          _major = parent.getItemAtPosition(position).toString();
-//    }
-//
-//    @Override
-//    public void onNothingSelected(AdapterView<?> parent) {
-//        _major = "NA";
-//    }
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        credentials = (Credentials) parent.getItemAtPosition(position);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        credentials = Credentials.USER;
+    }
 }
+
