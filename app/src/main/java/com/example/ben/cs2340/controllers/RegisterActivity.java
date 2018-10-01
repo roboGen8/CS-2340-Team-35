@@ -22,10 +22,10 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         Widgets we will need for binding and getting information
      */
 
-    private EditText nameField;
+    //private EditText nameField;
     private EditText usernameField;
     private EditText passwordField;
-    private EditText confirmPasswordField;
+    //private EditText confirmPasswordField;
     private Spinner credentialsSpinner;
 
     /* ************************
@@ -80,7 +80,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         Log.d("Edit", "Add Student");
         Model model = Model.getInstance();
 
-        _account.setName(nameField.getText().toString());
         _account.setUsername(usernameField.getText().toString());
         _account.setPassword(passwordField.getText().toString());
         _account.setCredentials((Credentials) credentialsSpinner.getSelectedItem());

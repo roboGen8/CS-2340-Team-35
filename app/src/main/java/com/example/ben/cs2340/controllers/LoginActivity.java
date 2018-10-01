@@ -101,8 +101,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mRegistrationButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Replace this later
-                finish();
+                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
             }
         });
 
@@ -312,10 +311,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         int ADDRESS = 0;
         int IS_PRIMARY = 1;
-    }
-
-    private void onLoginRegisterPressed(View view) {
-        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
     }
 
     /**
