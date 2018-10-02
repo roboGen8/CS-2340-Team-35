@@ -40,9 +40,11 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         /**
          * Grab the dialog widgets so we can get info for later
          */
-//        nameField = (EditText) findViewById(R.id.name_input);
+
         usernameField = (EditText) findViewById(R.id.username_input);
         passwordField = (EditText) findViewById(R.id.password_input);
+        //confirmPasswordField = (EditText) findViewById(R.id.confirm_password_input);
+        //nameField = (EditText) findViewById(R.id.name_input);
         credentialsSpinner = (Spinner) findViewById(R.id.credentials_spinner);
 
         /*
@@ -62,13 +64,19 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
         String username = usernameField.getText().toString();
         String password = passwordField.getText().toString();
+//        String confirmPassword = confirmPasswordField.getText().toString();
         Credentials credentials = (Credentials) credentialsSpinner.getSelectedItem();
+
+//        if (!password.equals(confirmPassword)) {
+//            passwordField.setError("Passwords do not match");
+//        } else {
 
         if (model.registerAccount(username, password, "", credentials)) {
             finish();
         } else {
             usernameField.setError("Username is taken");
         }
+//        }
     }
 
     /**
