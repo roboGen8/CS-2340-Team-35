@@ -54,13 +54,13 @@ public class LoginActivity extends AppCompatActivity{
 //        setSupportActionBar(toolbar);
     }
 
-//    @Override
+//   @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        // Inflate the menu; this adds items to the action bar if it is present.
 //        getMenuInflater().inflate(R.menu.menu_login, menu);
 //        return true;
 //    }
-
+//
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        // Handle action bar item clicks here. The action bar will
@@ -85,12 +85,9 @@ public class LoginActivity extends AppCompatActivity{
         //grab the widget references
         EditText usernameField = findViewById(R.id.username);
         EditText passwordField = findViewById(R.id.password);
-        TextView error = findViewById(R.id.error_text);
 
         //get a reference to the model
         LoginService model = LoginService.getInstance();
-        //null out any error text about incorrect logins
-        error.setText("");
 
         //check the password and user id
         if (model.doLogin(usernameField.getText().toString(), passwordField.getText().toString())) {
@@ -101,7 +98,7 @@ public class LoginActivity extends AppCompatActivity{
             //bad login, null out the entries and show the error text.
             usernameField.setText("");
             passwordField.setText("");
-            error.setText("Bad login, Please try again");
+            usernameField.setError("Bad login, Please try again");
         }
     }
 

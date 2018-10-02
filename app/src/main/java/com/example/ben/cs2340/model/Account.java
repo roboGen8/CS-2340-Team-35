@@ -10,18 +10,11 @@ public class Account {
 
     private Credentials _credentials;
 
-    public Account(String name, String username, String password, Credentials credentials) {
-        _name = name;
+    public Account(String username, String password, String name, Credentials credentials) {
         _username = username;
         _password = password;
-        _credentials = credentials;
-    }
-
-    public String getName(){
-        return _name;
-    }
-    public void setName(String name) {
         _name = name;
+        _credentials = credentials;
     }
 
     public String getUsername() {
@@ -36,6 +29,13 @@ public class Account {
     }
     public void setPassword(String password) {
         _password = password;
+    }
+
+    public String getName(){
+        return _name;
+    }
+    public void setName(String name) {
+        _name = name;
     }
 
     public Credentials getCredentials() {

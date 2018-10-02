@@ -12,36 +12,23 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.ben.cs2340.model.Account;
+import com.example.ben.cs2340.model.AccountManager;
 import com.example.ben.cs2340.model.Credentials;
 import com.example.ben.cs2340.R;
+import com.example.ben.cs2340.model.LoginService;
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     /* ************************
         Widgets we will need for binding and getting information
      */
-
     //private EditText nameField;
     private EditText usernameField;
     private EditText passwordField;
     //private EditText confirmPasswordField;
     private Spinner credentialsSpinner;
 
-    /* ************************
-       Keeping track of spinner changes.  Not really used right now, probably don't need this.
-     */
-//    private String _major = "NA";
-
-    /* ***********************
-       Data for account being edited.
-     */
-    private Account _account;
     private Credentials credentials = Credentials.USER;
-
-    /* ***********************
-       flag for whether this is a new account being added or an existing student being edited;
-     */
-    private boolean editing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +36,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         setContentView(R.layout.activity_register);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         /**
          * Grab the dialog widgets so we can get info for later
@@ -59,39 +45,30 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         passwordField = (EditText) findViewById(R.id.password_input);
         credentialsSpinner = (Spinner) findViewById(R.id.credentials_spinner);
 
-
         /*
-          Set up the adapter to display the allowable majors in the spinner
+          Set up the adapter to display the allowable credentials in the spinner
          */
-
-
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, Credentials.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         credentialsSpinner.setAdapter(adapter);
     }
-
 
     /**
      * Button handler for the add new student button
      * @param view the button
      */
     public void onRegisterPressed(View view) {
-        Log.d("Edit", "Add Student");
+        LoginService model = LoginService.getInstance();
 
-        _account.setUsername(usernameField.getText().toString());
-        _account.setPassword(passwordField.getText().toString());
-        _account.setCredentials((Credentials) credentialsSpinner.getSelectedItem());
+        String username = usernameField.getText().toString();
+        String password = passwordField.getText().toString();
+        Credentials credentials = (Credentials) credentialsSpinner.getSelectedItem();
 
-
-
-        Log.d("Edit", "Got new student data: " + _account);
-//        if (!editing) {
-//            model.addAccount(_account);
-//        }  else {
-//            model.replaceStudentData(_student);
-//        }
-
-        finish();
+        if (model.registerAccount(username, password, "", credentials)) {
+            finish();
+        } else {
+            usernameField.setError("Username is taken");
+        }
     }
 
     /**

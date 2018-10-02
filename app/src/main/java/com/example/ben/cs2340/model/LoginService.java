@@ -64,4 +64,8 @@ public class LoginService {
      * Call this method to check if anyone is logged in
      */
     public boolean hasLoggedInUser() { return currentAccount != null; }
+
+    public boolean registerAccount(String username, String password, String name, Credentials credentials) {
+        return _accountManager.addAccount(username, password, name, credentials);
+    }
 }
