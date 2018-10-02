@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content">
 
                 <AutoCompleteTextView
-                    android:id="@+id/email"
+                    android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
@@ -70,14 +70,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Sign in"
+                android:onClick="onLoginPressed"
+                android:text="Log in"
                 android:textStyle="bold" />
 
             <Button
                 android:id="@+id/register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Register"/>
+                android:onClick="onLoginRegisterPressed"
+                android:text="Register" />
 
             <Button
                 android:id="@+id/cancel"
@@ -85,6 +87,16 @@
                 android:layout_height="wrap_content"
                 android:text="Cancel" />
 
+            <TextView
+                android:id="@+id/error_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text=""
+                android:gravity="center_horizontal"
+                android:textSize="32dp"
+                android:textColor="#FF0000"/>
+
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

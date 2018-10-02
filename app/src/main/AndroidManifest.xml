@@ -26,13 +26,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".controllers.test"
+            android:name=".controllers.MainActivity"
             android:label="@string/title_activity_test"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".controllers.RegisterActivity"
-            android:label="Register">
+            android:label="Register"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

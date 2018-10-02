@@ -11,10 +11,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.ben.cs2340.model.Accounts;
+import com.example.ben.cs2340.model.Account;
 import com.example.ben.cs2340.model.Credentials;
 import com.example.ben.cs2340.R;
-import com.example.ben.cs2340.model.Model;
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -36,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     /* ***********************
        Data for account being edited.
      */
-    private Accounts _account;
+    private Account _account;
     private Credentials credentials = Credentials.USER;
 
     /* ***********************
@@ -78,7 +77,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
      */
     public void onRegisterPressed(View view) {
         Log.d("Edit", "Add Student");
-        Model model = Model.getInstance();
 
         _account.setUsername(usernameField.getText().toString());
         _account.setPassword(passwordField.getText().toString());

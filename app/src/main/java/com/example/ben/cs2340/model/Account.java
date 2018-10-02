@@ -1,6 +1,6 @@
 package com.example.ben.cs2340.model;
 
-public class Accounts {
+public class Account {
 
     private String _name;
 
@@ -10,7 +10,7 @@ public class Accounts {
 
     private Credentials _credentials;
 
-    public Accounts(String name, String username, String password, Credentials credentials) {
+    public Account(String name, String username, String password, Credentials credentials) {
         _name = name;
         _username = username;
         _password = password;
@@ -45,12 +45,14 @@ public class Accounts {
         _credentials = credentials;
     }
 
+    public boolean checkPassword(String pass) {return _password.equals(pass);}
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
         }
-        return ((Accounts) obj).getUsername().equals(this.getUsername());
+        return ((Account) obj).getUsername().equals(this.getUsername());
     }
     @Override
     public String toString() {

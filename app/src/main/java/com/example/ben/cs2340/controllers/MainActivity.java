@@ -12,7 +12,7 @@ import android.widget.Button;
 import com.example.ben.cs2340.R;
 import com.example.ben.cs2340.controllers.LoginActivity;
 
-public class test extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
