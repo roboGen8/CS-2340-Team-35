@@ -17,7 +17,7 @@ public class LocationManager {
     private ArrayList<Location> _locations = new ArrayList<>();
 
 
-    public boolean addLocation(String name, float latitude, float longitude, String address, String city, String state, String zip, String type, String phone, String website) {
+    private boolean addLocation(String name, float latitude, float longitude, String address, String city, String state, String zip, String type, String phone, String website) {
        Location newLocation = new Location(name, latitude, longitude, address, city, state, zip, type, phone, website);
        return _locations.add(newLocation);
     }
