@@ -1,6 +1,8 @@
 package com.example.ben.cs2340.model;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -25,7 +27,14 @@ public class LocationManager {
     }
 
     public void parseData() throws IOException {
-        FileInputStream data = new FileInputStream("LocationData.csv");
-        
+        FileReader data = new FileReader("LocationData.csv");
+        BufferedReader br = new BufferedReader(data);
+        String line;
+        while (((line = br.readLine()) != null)) {
+            String[] array = line.split(",");
+            float latitude = Float.valueOf(array[2]).floatValue();
+            float longitude = Float.valueOf(array[3]).floatValue();
+            addLocation(array[1], latitude, longitude, array[4], array[5], array[6], array[7], array[8], array[9], array[10]);
+        }
     }
 }

@@ -2,16 +2,16 @@ package com.example.ben.cs2340.model;
 
 public class Location {
 
-    String _name;
-    float _latitude;
-    float _longitude;
-    String _address;
-    String _city;
-    String _state;
-    String _zip;
-    String _type;
-    String _phone;
-    String _website;
+    private String _name;
+    private float _latitude;
+    private float _longitude;
+    private String _address;
+    private String _city;
+    private String _state;
+    private String _zip;
+    private String _type;
+    private String _phone;
+    private String _website;
 
     public Location(String name, float latitude, float longitude, String address, String city, String state, String zip, String type, String phone, String website) {
         _name = name;
@@ -26,4 +26,5 @@ public class Location {
         _website = website;
     }
 
+    
 }

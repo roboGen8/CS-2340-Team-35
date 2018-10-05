@@ -27,7 +27,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     private EditText passwordField;
     //private EditText confirmPasswordField;
     private Spinner credentialsSpinner;
-
     private Credentials credentials = Credentials.USER;
 
     @Override
@@ -85,13 +84,11 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
      * @param view the button pressed
      */
     public void onCancelPressed(View view) {
-        Log.d("Edit", "Cancel Student");
         finish();
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
         credentials = (Credentials) parent.getItemAtPosition(position);
     }
 
