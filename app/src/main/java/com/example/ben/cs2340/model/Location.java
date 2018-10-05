@@ -26,5 +26,14 @@ public class Location {
         _website = website;
     }
 
-    
+    public String get_name() {
+        return _name;
+    }
+
+    public float get_latitude() {
+        return _latitude;
+    }
+    public void set_latitude(float latitude){
+        _latitude = latitude;
+    }
 }
