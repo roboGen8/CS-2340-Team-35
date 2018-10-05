@@ -26,14 +26,73 @@ public class Location {
         _website = website;
     }
 
-    public String get_name() {
+    public String getName() {
         return _name;
     }
+    public void setName(String name) {
+        _name = name;
+    }
 
-    public float get_latitude() {
+    public float getLatitude() {
         return _latitude;
     }
-    public void set_latitude(float latitude){
+    public void setLatitude(float latitude){
         _latitude = latitude;
+    }
+
+    public float getLongitude() {
+        return _longitude;
+    }
+    public void setLongitude(float longitude) {
+        _longitude = longitude;
+    }
+
+    public String getAddress() {
+        return _address;
+    }
+    public void setAddress(String address) {
+        _address = address;
+    }
+
+    public String getCity() {
+        return _city;
+    }
+    public void setCity(String city) {
+        _city = city;
+    }
+
+    public String getState() {
+        return _state;
+    }
+    public void setState(String state) {
+        _state = state;
+    }
+
+    public String getZip() {
+        return _zip;
+    }
+    public void setZip(String zip) {
+        _zip = zip;
+    }
+
+    public String getType() {
+        return _type;
+    }
+    public void setType(String type) {
+        _type = type;
+    }
+
+    public String getPhone() {
+        return _phone;
+    }
+    public void setPhone(String phone) {
+        _phone = phone;
+    }
+
+    public String getWebsite() {
+        return _website;
+    }
+    public void setWebsite(String website) {
+        _website = website;
     }
 }
