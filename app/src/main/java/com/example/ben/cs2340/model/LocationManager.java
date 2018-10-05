@@ -32,8 +32,8 @@ public class LocationManager {
         String line;
         while (((line = br.readLine()) != null)) {
             String[] array = line.split(",");
-            float latitude = Float.valueOf(array[2]).floatValue();
-            float longitude = Float.valueOf(array[3]).floatValue();
+            float latitude = Float.valueOf(array[2]);
+            float longitude = Float.valueOf(array[3]);
             addLocation(array[1], latitude, longitude, array[4], array[5], array[6], array[7], array[8], array[9], array[10]);
         }
     }
