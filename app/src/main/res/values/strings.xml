@@ -15,4 +15,5 @@
         completions."
     </string>
     <string name="title_activity_test">test</string>
+    <string name="title_activity_location">LocationActivity</string>
 </resources>
