@@ -1,6 +1,9 @@
 package com.example.ben.cs2340.model;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -28,10 +31,13 @@ public class LocationManager {
 //    }
 
     public static ArrayList<Location> parseData() throws IOException {
+//        File f = new File("taco.txt");
+//        Log.d("file path", f.getAbsolutePath());
         ArrayList<Location> list = new ArrayList<>();
-        FileReader data = new FileReader("LocationData.csv");
+        FileReader data = new FileReader(new File(System.getProperty("user.dir"),"LocationData.csv"));
         BufferedReader br = new BufferedReader(data);
         String line;
+
         while (((line = br.readLine()) != null)) {
             String[] array = line.split(",");
             float latitude = Float.valueOf(array[2]);
