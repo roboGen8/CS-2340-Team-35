@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,15 +31,16 @@ public class LocationManager {
 //        return _locations;
 //    }
 
-    public static ArrayList<Location> parseData() throws IOException {
+    public static ArrayList<Location> parseData(BufferedReader reader) throws IOException {
 //        File f = new File("taco.txt");
 //        Log.d("file path", f.getAbsolutePath());
         ArrayList<Location> list = new ArrayList<>();
-        FileReader data = new FileReader(new File(System.getProperty("user.dir"),"LocationData.csv"));
-        BufferedReader br = new BufferedReader(data);
+//        FileReader data = new FileReader(new File(System.getProperty("user.dir"),"LocationData.csv"));
+//        BufferedReader br = new BufferedReader(new InputStreamReader(getAssets().open("YourTextFile.txt")));
         String line;
 
-        while (((line = br.readLine()) != null)) {
+        reader.readLine();
+        while (((line = reader.readLine()) != null)) {
             String[] array = line.split(",");
             float latitude = Float.valueOf(array[2]);
             float longitude = Float.valueOf(array[3]);
