@@ -39,6 +39,7 @@ public class LocationManager {
 //        BufferedReader br = new BufferedReader(new InputStreamReader(getAssets().open("YourTextFile.txt")));
         String line;
 
+        reader.readLine();
         while (((line = reader.readLine()) != null)) {
             String[] array = line.split(",");
             float latitude = Float.valueOf(array[2]);

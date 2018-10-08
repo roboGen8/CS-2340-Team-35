@@ -41,7 +41,7 @@ public class LocationActivity extends AppCompatActivity {
 
         RecyclerView rvLocations = (RecyclerView) findViewById(R.id.rvLocations);
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open("YourTextFile.txt")));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open("LocationData.csv")));
             locations = LocationManager.parseData(reader);
         } catch (IOException e) {
             throw new RuntimeException(e);
