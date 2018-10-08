@@ -19,9 +19,10 @@
         <activity
             android:name=".controllers.LoginActivity"
             android:label="Login">
-            <!--android:theme="@style/AppTheme.NoActionBar">-->
 
-        <intent-filter>
+            <!-- android:theme="@style/AppTheme.NoActionBar"> -->
+
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -30,13 +31,15 @@
         <activity
             android:name=".controllers.MainActivity"
             android:label="@string/title_activity_test"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".controllers.RegisterActivity"
             android:label="Register"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".controllers.LocationActivity"
+            android:label="@string/title_activity_location"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

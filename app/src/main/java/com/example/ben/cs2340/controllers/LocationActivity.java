@@ -1,25 +1,30 @@
 package com.example.ben.cs2340.controllers;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 
 import com.example.ben.cs2340.R;
-import com.example.ben.cs2340.controllers.LoginActivity;
-import com.example.ben.cs2340.model.Account;
-import com.example.ben.cs2340.model.LoginService;
+import com.example.ben.cs2340.model.Location;
+import com.example.ben.cs2340.model.LocationAdapter;
+import com.example.ben.cs2340.model.LocationManager;
 
-public class MainActivity extends AppCompatActivity {
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class LocationActivity extends AppCompatActivity {
+
+    ArrayList<Location> locations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_location);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -32,21 +37,15 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        Account a = LoginService.getInstance().getCurrentAccount();
-        setTitle("Welcome back " + a.getName());
+        RecyclerView rvLocations = (RecyclerView) findViewById(R.id.rvLocations);
+        try {
+            locations = LocationManager.parseData();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        LocationAdapter adapter = new LocationAdapter(locations);
+        rvLocations.setAdapter(adapter);
+        rvLocations.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    public void onLogoutPressed(View view) {
-        LoginService model = LoginService.getInstance();
-        //ask model to log out the current user
-        model.logout();
-        //go back to login screen
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-    }
-
-    public void onLocationButtonPressed(View view) {
-        Intent intent = new Intent(this, LocationActivity.class);
-        startActivity(intent);
-    }
 }
