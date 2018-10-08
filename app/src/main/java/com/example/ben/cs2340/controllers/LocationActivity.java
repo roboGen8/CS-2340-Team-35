@@ -14,7 +14,9 @@ import com.example.ben.cs2340.model.Location;
 import com.example.ben.cs2340.model.LocationAdapter;
 import com.example.ben.cs2340.model.LocationManager;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class LocationActivity extends AppCompatActivity {
@@ -39,7 +41,8 @@ public class LocationActivity extends AppCompatActivity {
 
         RecyclerView rvLocations = (RecyclerView) findViewById(R.id.rvLocations);
         try {
-            locations = LocationManager.parseData();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open("LocationData.csv")));
+            locations = LocationManager.parseData(reader);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
