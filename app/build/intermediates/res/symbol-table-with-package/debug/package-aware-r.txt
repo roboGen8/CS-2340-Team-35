@@ -1054,7 +1054,6 @@ id add
 id alertTitle
 id all
 id always
-id appBarLayout
 id async
 id auto
 id barrier
@@ -1072,11 +1071,11 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id contact_name
 id container
 id content
 id contentPanel
 id coordinator
-id coordinatorLayout
 id credentials_spinner
 id credentials_textview
 id custom
@@ -1094,7 +1093,6 @@ id disableHome
 id edit_query
 id email_login_form
 id email_sign_in_button
-id email_textview
 id end
 id enterAlways
 id enterAlwaysCollapsed
@@ -1128,12 +1126,14 @@ id line1
 id line3
 id listMode
 id list_item
+id location_button
 id login_form
 id login_progress
 id logout
 id logout_button
 id masked
 id message
+id message_button
 id middle
 id mini
 id mtrl_child_content_container
@@ -1168,6 +1168,7 @@ id register_register
 id right
 id right_icon
 id right_side
+id rvLocations
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1242,6 +1243,7 @@ id up
 id useLogo
 id username
 id username_input
+id username_textview
 id view_offset_helper
 id visible
 id withText
@@ -1294,9 +1296,11 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_location
 layout activity_login
 layout activity_main
 layout activity_register
+layout content_location
 layout content_register
 layout content_test
 layout design_bottom_navigation_item
@@ -1313,6 +1317,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout item_location
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
@@ -1392,6 +1397,7 @@ string prompt_password
 string prompt_registration_email
 string search_menu_title
 string status_bar_notification_info_overflow
+string title_activity_location
 string title_activity_test
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
