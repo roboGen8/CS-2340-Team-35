@@ -1,6 +1,8 @@
 package com.example.ben.cs2340.model;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ben.cs2340.R;
+import com.example.ben.cs2340.controllers.LocationDetailActivity;
 
 import java.util.List;
 
@@ -57,6 +60,17 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
         textView.setText(location.getName());
         Button button = viewHolder.detailsButton;
         button.setText("Details");
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLocationDetail(v);
+            }
+        });
+    }
+
+    public void openLocationDetail(View v) {
+        Intent intent = new Intent(v.getContext(), LocationDetailActivity.class);
+        v.getContext().startActivity(intent);
     }
 
     // Returns the total count of items in the list
