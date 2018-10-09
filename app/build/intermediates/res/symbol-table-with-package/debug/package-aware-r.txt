@@ -1139,6 +1139,7 @@ id logout
 id logout_button
 id masked
 id message
+id message_button
 id middle
 id mini
 id mtrl_child_content_container
