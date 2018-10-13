@@ -1,6 +1,9 @@
 package com.example.ben.cs2340.model;
 
-public class Location {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Location implements Parcelable{
 
     private String _name;
     private float _latitude;
@@ -25,6 +28,31 @@ public class Location {
         _phone = phone;
         _website = website;
     }
+
+    protected Location(Parcel in) {
+        _name = in.readString();
+        _latitude = in.readFloat();
+        _longitude = in.readFloat();
+        _address = in.readString();
+        _city = in.readString();
+        _state = in.readString();
+        _zip = in.readString();
+        _type = in.readString();
+        _phone = in.readString();
+        _website = in.readString();
+    }
+
+    public static final Creator<Location> CREATOR = new Creator<Location>() {
+        @Override
+        public Location createFromParcel(Parcel in) {
+            return new Location(in);
+        }
+
+        @Override
+        public Location[] newArray(int size) {
+            return new Location[size];
+        }
+    };
 
     public String getName() {
         return _name;
@@ -94,5 +122,24 @@ public class Location {
     }
     public void setWebsite(String website) {
         _website = website;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(_name);
+        dest.writeFloat(_latitude);
+        dest.writeFloat(_longitude);
+        dest.writeString(_address);
+        dest.writeString(_city);
+        dest.writeString(_state);
+        dest.writeString(_zip);
+        dest.writeString(_type);
+        dest.writeString(_phone);
+        dest.writeString(_website);
     }
 }
