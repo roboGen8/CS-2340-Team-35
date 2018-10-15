@@ -72,6 +72,8 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
         });
     }
 
+    //delete this comment later
+
 //    public void openLocationDetail(View v) {
 //        Intent intent = new Intent(v.getContext(), LocationDetailActivity.class);
 //        intent.putExtra("Location"),
