@@ -44,6 +44,7 @@
             android:name=".controllers.LocationDetailActivity"
             android:label="Details"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".controllers.AddDonationActivity"></activity>
     </application>
 
 </manifest>
