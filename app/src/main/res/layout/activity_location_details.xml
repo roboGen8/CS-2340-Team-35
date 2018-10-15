@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-=======
+
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> ceed5e6d3e1402dc8cc557b69c0f813a3adcc5ea
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
+
     android:fitsSystemWindows="true"
     tools:context=".controllers.LocationDetailsActivity">
 
@@ -48,10 +48,6 @@
         <!--app:layout_anchor="@id/app_bar"-->
         <!--app:layout_anchorGravity="bottom|end"-->
         <!--app:srcCompat="@android:drawable/ic_dialog_email" />-->
-
-</android.support.design.widget.CoordinatorLayout>
-=======
-    tools:context=".controllers.LocationDetailActivity">
 
     <TextView
         android:id="@+id/location_detail_lbl"
@@ -166,4 +162,3 @@
         android:layout_alignParentTop="false"
         android:text="WEB" />
 </RelativeLayout>
->>>>>>> ceed5e6d3e1402dc8cc557b69c0f813a3adcc5ea
