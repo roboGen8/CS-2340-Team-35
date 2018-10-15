@@ -41,15 +41,10 @@
             android:label="@string/title_activity_location"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-<<<<<<< HEAD
             android:name=".controllers.LocationDetailsActivity"
             android:label="@string/title_activity_location_details"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-=======
-            android:name=".controllers.LocationDetailActivity"
-            android:label="Details"
-            android:theme="@style/AppTheme.NoActionBar" />
->>>>>>> ceed5e6d3e1402dc8cc557b69c0f813a3adcc5ea
+
     </application>
 
 </manifest>
