@@ -26,8 +26,8 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
         public ViewHolder(View itemView) {
             super(itemView);
 
-            nameTextView = (TextView) itemView.findViewById(R.id.location_name);
-            detailsButton = (Button) itemView.findViewById(R.id.details_button);
+            nameTextView = (TextView) itemView.findViewById(R.id.contact_name);
+            detailsButton = (Button) itemView.findViewById(R.id.message_button);
 
         }
     }
