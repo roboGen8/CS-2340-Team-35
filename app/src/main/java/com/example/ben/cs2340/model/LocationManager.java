@@ -32,8 +32,13 @@ public class LocationManager {
 //    }
 
     public static ArrayList<Location> parseData(BufferedReader reader) throws IOException {
+//        File f = new File("taco.txt");
+//        Log.d("file path", f.getAbsolutePath());
         ArrayList<Location> list = new ArrayList<>();
+//        FileReader data = new FileReader(new File(System.getProperty("user.dir"),"LocationData.csv"));
+//        BufferedReader br = new BufferedReader(new InputStreamReader(getAssets().open("YourTextFile.txt")));
         String line;
+
         reader.readLine();
         while (((line = reader.readLine()) != null)) {
             String[] array = line.split(",");
