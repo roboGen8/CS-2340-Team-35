@@ -16,4 +16,5 @@
     </string>
     <string name="title_activity_test">test</string>
     <string name="title_activity_location">LocationActivity</string>
+    <string name="title_activity_add_donation">AddDonationActivity</string>
 </resources>

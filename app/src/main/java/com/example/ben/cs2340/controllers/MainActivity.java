@@ -49,4 +49,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LocationActivity.class);
         startActivity(intent);
     }
+
+    public void onAddDonationPressed(View view) {
+        Intent intent = new Intent(this, AddDonationActivity.class);
+        startActivity(intent);
+    }
 }
