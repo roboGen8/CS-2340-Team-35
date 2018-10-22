@@ -3,6 +3,8 @@ package com.example.ben.cs2340.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+
 public class Location implements Parcelable{
 
     private String _name;
@@ -15,6 +17,7 @@ public class Location implements Parcelable{
     private String _type;
     private String _phone;
     private String _website;
+    private ArrayList<Donation> _donations;
 
     public Location(String name, float latitude, float longitude, String address, String city, String state, String zip, String type, String phone, String website) {
         _name = name;
@@ -27,6 +30,7 @@ public class Location implements Parcelable{
         _type = type;
         _phone = phone;
         _website = website;
+        _donations = new ArrayList<Donation>();
     }
 
     protected Location(Parcel in) {
@@ -40,6 +44,7 @@ public class Location implements Parcelable{
         _type = in.readString();
         _phone = in.readString();
         _website = in.readString();
+        _donations = (ArrayList<Donation>) in.readSerializable();
     }
 
     public static final Creator<Location> CREATOR = new Creator<Location>() {
@@ -124,6 +129,11 @@ public class Location implements Parcelable{
         _website = website;
     }
 
+    public boolean addDonation(String timestamp, Location location, String shortDescription, String longDescription, double value, DonationCategory category) {
+        Donation donation = new Donation(timestamp, location, shortDescription, longDescription, value, category);
+        return _donations.add(donation);
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -141,5 +151,6 @@ public class Location implements Parcelable{
         dest.writeString(_type);
         dest.writeString(_phone);
         dest.writeString(_website);
+        dest.writeSerializable(_donations);
     }
 }

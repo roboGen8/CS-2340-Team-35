@@ -35,13 +35,12 @@
         android:layout_height="wrap_content"
         android:onClick="onLocationButtonPressed"
         android:text="Locations" />
-
     <Button
         android:id="@+id/add_donation_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onAddDonationPressed"
-        android:text="Add Donation" />
+        android:onClick="onMainAddDonationPressed"
+        android:text="Add Donation"/>
 
     <Button
         android:id="@+id/logout_button"

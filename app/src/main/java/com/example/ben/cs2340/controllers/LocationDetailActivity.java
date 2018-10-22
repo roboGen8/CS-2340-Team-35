@@ -3,6 +3,7 @@ package com.example.ben.cs2340.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.ben.cs2340.R;

@@ -45,13 +45,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onLocationButtonPressed(View view) {
-        Intent intent = new Intent(this, LocationActivity.class);
+    public void onMainAddDonationPressed(View view) {
+        Intent intent = new Intent(this, AddDonationActivity.class);
         startActivity(intent);
     }
 
-    public void onAddDonationPressed(View view) {
-        Intent intent = new Intent(this, AddDonationActivity.class);
+    public void onLocationButtonPressed(View view) {
+        Intent intent = new Intent(this, LocationActivity.class);
         startActivity(intent);
     }
 }

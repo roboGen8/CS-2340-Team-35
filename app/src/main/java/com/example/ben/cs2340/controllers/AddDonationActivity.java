@@ -6,10 +6,26 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.example.ben.cs2340.R;
+import com.example.ben.cs2340.model.DonationCategory;
 
-public class AddDonationActivity extends AppCompatActivity {
+import java.util.Calendar;
+import java.util.Date;
+
+public class AddDonationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+
+    private EditText briefDescriptionField;
+    private EditText fullDescriptionField;
+    private EditText priceField;
+    private Spinner categorySpinner;
+    private DonationCategory category = DonationCategory.CLOTHING;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +42,33 @@ public class AddDonationActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+
+        briefDescriptionField = (EditText) findViewById(R.id.brief_description_input);
+        fullDescriptionField = (EditText) findViewById(R.id.full_description_input);
+        priceField = (EditText) findViewById(R.id.price_input);
+        categorySpinner = (Spinner) findViewById(R.id.category_spinner);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, DonationCategory.values());
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        categorySpinner.setAdapter(adapter);
+    }
+
+    public void onAddDonationPressed(View view) {
+        Date currentTime = Calendar.getInstance().getTime();
+    }
+
+    public void onCancelPressed(View view) {
+        finish();
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        category = (DonationCategory) parent.getItemAtPosition(position);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        category = DonationCategory.CLOTHING;
     }
 
 }

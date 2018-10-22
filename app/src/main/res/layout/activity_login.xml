@@ -88,5 +88,4 @@
                 android:text="Cancel" />
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>

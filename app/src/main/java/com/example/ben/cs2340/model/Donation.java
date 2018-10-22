@@ -6,18 +6,17 @@ public class Donation {
     private String _shortDescription;
     private String _longDescription;
     private double _value;
-    private String _category;
+    private DonationCategory _category;
     private String[] _comments;
 //    private something _image;
 
-    public Donation(String _timestamp, Location _location, String _shortDescription, String _longDescription, double _value, String _category, String[] _comments) {
+    public Donation(String _timestamp, Location _location, String _shortDescription, String _longDescription, double _value, DonationCategory _category) {
         this._timestamp = _timestamp;
         this._location = _location;
         this._shortDescription = _shortDescription;
         this._longDescription = _longDescription;
         this._value = _value;
         this._category = _category;
-        this._comments = _comments;
     }
 
     public String get_timestamp() {
@@ -60,11 +59,11 @@ public class Donation {
         this._value = _value;
     }
 
-    public String get_category() {
+    public DonationCategory get_category() {
         return _category;
     }
 
-    public void set_category(String _category) {
+    public void set_category(DonationCategory _category) {
         this._category = _category;
     }
 
