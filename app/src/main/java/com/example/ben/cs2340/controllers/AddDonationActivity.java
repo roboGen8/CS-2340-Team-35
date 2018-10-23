@@ -13,9 +13,16 @@ import android.widget.Spinner;
 
 import com.example.ben.cs2340.R;
 import com.example.ben.cs2340.model.DonationCategory;
+import com.example.ben.cs2340.model.Location;
+import com.example.ben.cs2340.model.LocationManager;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 public class AddDonationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -24,6 +31,7 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
     private EditText fullDescriptionField;
     private EditText priceField;
     private Spinner categorySpinner;
+    private Spinner locationSpinner;
     private DonationCategory category = DonationCategory.CLOTHING;
 
 
@@ -47,14 +55,36 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         fullDescriptionField = (EditText) findViewById(R.id.full_description_input);
         priceField = (EditText) findViewById(R.id.price_input);
         categorySpinner = (Spinner) findViewById(R.id.category_spinner);
+        locationSpinner = (Spinner) findViewById(R.id.location_spinner);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, DonationCategory.values());
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        categorySpinner.setAdapter(adapter);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, DonationCategory.values());
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        categorySpinner.setAdapter(adapter1);
+
+        LocationManager manager = LocationManager.getInstance();
+        ArrayList<Location> locationArray = manager.getLocations();
+        ArrayList<String> stringArray = new ArrayList<>();
+        int i;
+        for (i = 0; i < locationArray.size(); i++){
+            stringArray.add(locationArray.get(i).toString());
+        }
+        ArrayAdapter<String> adapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, stringArray);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        locationSpinner.setAdapter(adapter2);
     }
 
     public void onAddDonationPressed(View view) {
-        Date currentTime = Calendar.getInstance().getTime();
+        String currentTime = Calendar.getInstance().getTime().toString();
+        String briefDescription = briefDescriptionField.getText().toString();
+        String fullDescription = fullDescriptionField.getText().toString();
+        Double price = Double.valueOf(priceField.getText().toString());
+        DonationCategory category = (DonationCategory) categorySpinner.getSelectedItem();
+        LocationManager manager = LocationManager.getInstance();
+        HashMap<String, Location> map = manager.getMap();
+        String selectedLocation = (String) locationSpinner.getSelectedItem();
+        Location location = map.get(selectedLocation);
+        location.addDonation(currentTime, location, briefDescription, fullDescription, price, category);
+        finish();
     }
 
     public void onCancelPressed(View view) {

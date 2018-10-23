@@ -153,4 +153,9 @@ public class Location implements Parcelable{
         dest.writeString(_website);
         dest.writeSerializable(_donations);
     }
+
+    @Override
+    public String toString() {
+        return _name;
+    }
 }
