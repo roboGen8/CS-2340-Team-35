@@ -49,6 +49,13 @@ public class LocationDetailActivity extends AppCompatActivity {
 
         TextView tvWeb = findViewById(R.id.web_detail);
         tvWeb.setText("" + _website + "");
+    }
 
+    public void onViewDonationsPressed(View view) {
+        Intent intent = getIntent();
+        Location location = intent.getParcelableExtra("Location");
+        Intent newIntent = new Intent(this, DonationListActivity.class);
+        intent.putExtra("Location", location);
+        startActivity(newIntent);
     }
 }

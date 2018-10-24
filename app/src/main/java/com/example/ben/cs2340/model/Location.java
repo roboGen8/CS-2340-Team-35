@@ -129,6 +129,14 @@ public class Location implements Parcelable{
         _website = website;
     }
 
+    public ArrayList<Donation> getDonations() {
+        return _donations;
+    }
+
+    public void setDonations(ArrayList<Donation> _donations) {
+        this._donations = _donations;
+    }
+
     public boolean addDonation(String timestamp, Location location, String shortDescription, String longDescription, double value, DonationCategory category) {
         Donation donation = new Donation(timestamp, location, shortDescription, longDescription, value, category);
         return _donations.add(donation);

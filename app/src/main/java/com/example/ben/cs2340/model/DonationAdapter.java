@@ -12,8 +12,7 @@ import android.widget.TextView;
 
 import com.example.ben.cs2340.R;
 import com.example.ben.cs2340.controllers.DonationDetailActivity;
-import com.example.ben.cs2340.controllers.LocationDetailActivity;
-import com.example.ben.cs2340.controllers.MainActivity;
+
 
 import java.util.List;
 
@@ -65,9 +64,9 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHo
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                openLocationDetail(v);
+//                openDonationDetail(v);
                 Intent intent = new Intent(v.getContext(), DonationDetailActivity.class);
-                intent.putExtra("Donation", donation);
+//                intent.putExtra("Donation", donation);
                 v.getContext().startActivity(intent);
             }
         });

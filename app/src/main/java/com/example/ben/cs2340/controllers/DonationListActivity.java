@@ -10,8 +10,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.example.ben.cs2340.R;
+import com.example.ben.cs2340.model.Donation;
 import com.example.ben.cs2340.model.DonationAdapter;
-import com.example.ben.cs2340.model.DonationManager;
+import com.example.ben.cs2340.model.Location;
+
+import java.util.ArrayList;
+
 
 public class DonationListActivity extends AppCompatActivity {
 
@@ -30,9 +34,9 @@ public class DonationListActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
-
+        Location location = (Location) getIntent().getParcelableExtra("Location");
+        ArrayList<Donation> donations = location.getDonations();
         RecyclerView rvDonations = (RecyclerView) findViewById(R.id.rvDonations);
-        donations = DonationManager.getInstance().getDonations();
         DonationAdapter adapter = new DonationAdapter(donations);
         rvDonations.setAdapter(adapter);
         rvDonations.setLayoutManager(new LinearLayoutManager(this));

@@ -1,6 +1,8 @@
 package com.example.ben.cs2340.model;
 
-public class Donation {
+import android.os.Parcelable;
+
+public class Donation implements Parcelable {
     private String _timestamp;
     private Location _location;
     private String _shortDescription;
@@ -22,7 +24,6 @@ public class Donation {
     public String get_timestamp() {
         return _timestamp;
     }
-
     public void set_timestamp(String _timestamp) {
         this._timestamp = _timestamp;
     }
@@ -30,7 +31,6 @@ public class Donation {
     public Location get_location() {
         return _location;
     }
-
     public void set_location(Location _location) {
         this._location = _location;
     }
@@ -38,7 +38,6 @@ public class Donation {
     public String get_shortDescription() {
         return _shortDescription;
     }
-
     public void set_shortDescription(String _shortDescription) {
         this._shortDescription = _shortDescription;
     }
@@ -46,7 +45,6 @@ public class Donation {
     public String get_longDescription() {
         return _longDescription;
     }
-
     public void set_longDescription(String _longDescription) {
         this._longDescription = _longDescription;
     }
@@ -54,7 +52,6 @@ public class Donation {
     public double get_value() {
         return _value;
     }
-
     public void set_value(double _value) {
         this._value = _value;
     }
@@ -62,7 +59,6 @@ public class Donation {
     public DonationCategory get_category() {
         return _category;
     }
-
     public void set_category(DonationCategory _category) {
         this._category = _category;
     }
@@ -70,8 +66,10 @@ public class Donation {
     public String[] get_comments() {
         return _comments;
     }
-
     public void set_comments(String[] _comments) {
         this._comments = _comments;
     }
+
+    @Override
+    public int describeContents(){return 0;}
 }
