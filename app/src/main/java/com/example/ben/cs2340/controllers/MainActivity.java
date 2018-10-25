@@ -12,10 +12,16 @@ import android.widget.Button;
 import com.example.ben.cs2340.R;
 import com.example.ben.cs2340.controllers.LoginActivity;
 import com.example.ben.cs2340.model.Account;
+import com.example.ben.cs2340.model.LocationManager;
 import com.example.ben.cs2340.model.LoginService;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
 
+    static boolean firstCreate = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +40,16 @@ public class MainActivity extends AppCompatActivity {
 
         Account a = LoginService.getInstance().getCurrentAccount();
         setTitle("Welcome back " + a.getName());
+        if (firstCreate) {
+            firstCreate = false;
+            try {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open("LocationData.csv")));
+                LocationManager manager = LocationManager.getInstance();
+                manager.parseData(reader);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public void onLogoutPressed(View view) {
@@ -42,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
         model.logout();
         //go back to login screen
         Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void onMainAddDonationPressed(View view) {
+        Intent intent = new Intent(this, AddDonationActivity.class);
         startActivity(intent);
     }
 

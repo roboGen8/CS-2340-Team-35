@@ -44,6 +44,18 @@
             android:name=".controllers.LocationDetailActivity"
             android:label="Details"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".controllers.AddDonationActivity"
+            android:label="@string/title_activity_add_donation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".controllers.DonationListActivity"
+            android:label="@string/title_activity_donation_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".controllers.DonationDetailActivity"
+            android:label="@string/title_activity_donation_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

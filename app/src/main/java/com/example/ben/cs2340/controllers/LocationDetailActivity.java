@@ -3,6 +3,7 @@ package com.example.ben.cs2340.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.ben.cs2340.R;
@@ -48,6 +49,13 @@ public class LocationDetailActivity extends AppCompatActivity {
 
         TextView tvWeb = findViewById(R.id.web_detail);
         tvWeb.setText("" + _website + "");
+    }
 
+    public void onViewDonationsPressed(View view) {
+        Intent intent = getIntent();
+        Location location = intent.getParcelableExtra("Location");
+        Intent newIntent = new Intent(this, DonationListActivity.class);
+        intent.putExtra("Location", location);
+        startActivity(newIntent);
     }
 }

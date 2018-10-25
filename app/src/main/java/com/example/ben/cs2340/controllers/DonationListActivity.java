@@ -10,23 +10,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.example.ben.cs2340.R;
+import com.example.ben.cs2340.model.Donation;
+import com.example.ben.cs2340.model.DonationAdapter;
 import com.example.ben.cs2340.model.Location;
-import com.example.ben.cs2340.model.LocationAdapter;
-import com.example.ben.cs2340.model.LocationManager;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class LocationActivity extends AppCompatActivity {
 
-    ArrayList<Location> locations;
+public class DonationListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_location);
+        setContentView(R.layout.activity_donation_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -38,11 +34,12 @@ public class LocationActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
-
-        RecyclerView rvLocations = (RecyclerView) findViewById(R.id.rvLocations);
-        locations = LocationManager.getInstance().getLocations();
-        LocationAdapter adapter = new LocationAdapter(locations);
-        rvLocations.setAdapter(adapter);
-        rvLocations.setLayoutManager(new LinearLayoutManager(this));
+        Location location = (Location) getIntent().getParcelableExtra("Location");
+        ArrayList<Donation> donations = location.getDonations();
+        RecyclerView rvDonations = (RecyclerView) findViewById(R.id.rvDonations);
+        DonationAdapter adapter = new DonationAdapter(donations);
+        rvDonations.setAdapter(adapter);
+        rvDonations.setLayoutManager(new LinearLayoutManager(this));
     }
+
 }

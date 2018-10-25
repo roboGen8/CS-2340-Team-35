@@ -118,4 +118,13 @@
         android:layout_alignParentBottom="false"
         android:layout_alignParentTop="false"
         android:text="WEB" />
+
+    <Button
+        android:id="@+id/view_donations_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/web_detail"
+        android:layout_alignParentStart="true"
+        android:onClick="onViewDonationsPressed"
+        android:text="View Donations" />
 </RelativeLayout>
