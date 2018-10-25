@@ -31,6 +31,7 @@ public class Location implements Parcelable{
         _phone = phone;
         _website = website;
         _donations = new ArrayList<Donation>();
+        _donations.add(new Donation("woo", "test", "big test", 20, DonationCategory.CLOTHING));
     }
 
     protected Location(Parcel in) {
@@ -44,7 +45,7 @@ public class Location implements Parcelable{
         _type = in.readString();
         _phone = in.readString();
         _website = in.readString();
-        _donations = (ArrayList<Donation>) in.readSerializable();
+        in.readTypedList(_donations, Donation.CREATOR);
     }
 
     public static final Creator<Location> CREATOR = new Creator<Location>() {
@@ -138,7 +139,7 @@ public class Location implements Parcelable{
     }
 
     public boolean addDonation(String timestamp, Location location, String shortDescription, String longDescription, double value, DonationCategory category) {
-        Donation donation = new Donation(timestamp, location, shortDescription, longDescription, value, category);
+        Donation donation = new Donation(timestamp, shortDescription, longDescription, value, category);
         return _donations.add(donation);
     }
 
@@ -159,7 +160,7 @@ public class Location implements Parcelable{
         dest.writeString(_type);
         dest.writeString(_phone);
         dest.writeString(_website);
-        dest.writeSerializable(_donations);
+        dest.writeTypedList(_donations);
     }
 
     @Override
