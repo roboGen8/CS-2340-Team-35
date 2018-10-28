@@ -12,7 +12,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.ben.cs2340.R;
+import com.example.ben.cs2340.model.Donation;
 import com.example.ben.cs2340.model.DonationCategory;
+import com.example.ben.cs2340.model.DonationManager;
 import com.example.ben.cs2340.model.Location;
 import com.example.ben.cs2340.model.LocationManager;
 
@@ -83,7 +85,8 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         HashMap<String, Location> map = manager.getMap();
         String selectedLocation = (String) locationSpinner.getSelectedItem();
         Location location = map.get(selectedLocation);
-        location.addDonation(currentTime, location, briefDescription, fullDescription, price, category);
+        Donation donation = new Donation(currentTime, briefDescription, fullDescription, price, category, location);
+        DonationManager.getInstance().addDonation(donation);
         finish();
     }
 

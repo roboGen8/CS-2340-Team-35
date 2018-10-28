@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ben.cs2340.R;
+import com.example.ben.cs2340.controllers.DonationListActivity;
 import com.example.ben.cs2340.controllers.LocationDetailActivity;
 import com.example.ben.cs2340.controllers.MainActivity;
 
