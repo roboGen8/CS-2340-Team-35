@@ -20,6 +20,7 @@ public class LocationManager {
     }
     private ArrayList<Location> _locations = new ArrayList<>();
     private HashMap<String, Location> _nameMap = new HashMap<>();
+    private Location _currentLocation;
 
 
 //    private ArrayList<Location> _locations = new ArrayList<>();
@@ -36,6 +37,15 @@ public class LocationManager {
 
     public HashMap<String, Location> getMap() {
         return _nameMap;
+    }
+
+
+    public Location getCurrentLocation() {
+        return _currentLocation;
+    }
+
+    public void setCurrentLocation(Location _currentLocation) {
+        this._currentLocation = _currentLocation;
     }
 
     public ArrayList<Location> parseData(BufferedReader reader) throws IOException {

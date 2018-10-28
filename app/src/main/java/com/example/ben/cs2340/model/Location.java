@@ -17,7 +17,6 @@ public class Location implements Parcelable{
     private String _type;
     private String _phone;
     private String _website;
-    private ArrayList<Donation> _donations;
 
     public Location(String name, float latitude, float longitude, String address, String city, String state, String zip, String type, String phone, String website) {
         _name = name;
@@ -30,8 +29,6 @@ public class Location implements Parcelable{
         _type = type;
         _phone = phone;
         _website = website;
-        _donations = new ArrayList<Donation>();
-        _donations.add(new Donation("woo", "test", "big test", 20, DonationCategory.CLOTHING));
     }
 
     protected Location(Parcel in) {
@@ -45,7 +42,6 @@ public class Location implements Parcelable{
         _type = in.readString();
         _phone = in.readString();
         _website = in.readString();
-        in.readTypedList(_donations, Donation.CREATOR);
     }
 
     public static final Creator<Location> CREATOR = new Creator<Location>() {
@@ -130,18 +126,6 @@ public class Location implements Parcelable{
         _website = website;
     }
 
-    public ArrayList<Donation> getDonations() {
-        return _donations;
-    }
-
-    public void setDonations(ArrayList<Donation> _donations) {
-        this._donations = _donations;
-    }
-
-    public boolean addDonation(String timestamp, Location location, String shortDescription, String longDescription, double value, DonationCategory category) {
-        Donation donation = new Donation(timestamp, shortDescription, longDescription, value, category);
-        return _donations.add(donation);
-    }
 
     @Override
     public int describeContents() {
@@ -160,7 +144,6 @@ public class Location implements Parcelable{
         dest.writeString(_type);
         dest.writeString(_phone);
         dest.writeString(_website);
-        dest.writeTypedList(_donations);
     }
 
     @Override
