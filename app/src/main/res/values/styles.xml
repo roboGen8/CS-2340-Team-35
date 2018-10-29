@@ -22,5 +22,13 @@
 
     <style name="TitleTextView">
         <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+    <style name="TitleTextView1">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+
     </style>
 </resources>
