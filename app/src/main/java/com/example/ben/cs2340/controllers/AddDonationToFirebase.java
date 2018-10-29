@@ -47,7 +47,7 @@ public class AddDonationToFirebase extends AppCompatActivity {
                 String descriptionStr = mDonation_Description.getText().toString();
                 String categoryStr = mDonation_Category.getText().toString();
 
-                mRootRef = new Firebase("https://cs2340-ab302.firebaseio.com/" + locationStr + "/" + itemStr);
+                mRootRef = new Firebase("https://cs2340-ab302.firebaseio.com/Location/" + locationStr + "/" + itemStr);
 
                 Firebase itemRef = mRootRef.child("Item");
                 itemRef.setValue(itemStr);

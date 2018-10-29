@@ -58,7 +58,7 @@ public class DonationListActivity extends AppCompatActivity {
 
         //------------------
 
-        mRef = new Firebase("https://cs2340-ab302.firebaseio.com/" + DemoClass.message);
+        mRef = new Firebase("https://cs2340-ab302.firebaseio.com/Location/" + DemoClass.message);
 
         mListView = (ListView)  findViewById(R.id.donationListView);
 //
