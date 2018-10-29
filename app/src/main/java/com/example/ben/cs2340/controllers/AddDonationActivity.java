@@ -73,6 +73,7 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         ArrayAdapter<String> adapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, stringArray);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(adapter2);
+
     }
 
     public void onAddDonationPressed(View view) {

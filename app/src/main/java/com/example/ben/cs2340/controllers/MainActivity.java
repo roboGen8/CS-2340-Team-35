@@ -2,15 +2,11 @@ package com.example.ben.cs2340.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 
 import com.example.ben.cs2340.R;
-import com.example.ben.cs2340.controllers.LoginActivity;
 import com.example.ben.cs2340.model.Account;
 import com.example.ben.cs2340.model.LocationManager;
 import com.example.ben.cs2340.model.LoginService;
@@ -68,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onLocationButtonPressed(View view) {
         Intent intent = new Intent(this, LocationActivity.class);
+        startActivity(intent);
+    }
+
+    public void onAddDonationToFirebasePressed(View view) {
+        Intent intent = new Intent(this, AddDonationToFirebase.class);
         startActivity(intent);
     }
 }
