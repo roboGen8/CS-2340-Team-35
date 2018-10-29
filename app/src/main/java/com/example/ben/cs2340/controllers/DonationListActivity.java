@@ -1,46 +1,98 @@
 package com.example.ben.cs2340.controllers;
 
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.content.Intent;
+import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
+import com.example.ben.cs2340.DemoClass;
 import com.example.ben.cs2340.R;
-import com.example.ben.cs2340.model.Donation;
-import com.example.ben.cs2340.model.DonationAdapter;
-import com.example.ben.cs2340.model.DonationManager;
 import com.example.ben.cs2340.model.Location;
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
-
+import java.util.Map;
 
 public class DonationListActivity extends AppCompatActivity {
+    private Firebase mRef;
+
+    private ArrayList<String> mItemNames = new ArrayList<>();
+
+    private ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donation_list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Need Location string name from LocationDetailActivity
+//        Intent intent = getIntent();
+//        Location location = intent.getParcelableExtra("Location");
+//
+//        String location_name = location.getName();
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-        Location location = (Location) getIntent().getParcelableExtra("Location");
-        ArrayList<Donation> donations = DonationManager.getInstance().get_donations().get(location);
-        RecyclerView rvDonations = (RecyclerView) findViewById(R.id.rvDonations);
-        DonationAdapter adapter = new DonationAdapter(donations);
-        rvDonations.setAdapter(adapter);
-        rvDonations.setLayoutManager(new LinearLayoutManager(this));
+
+//        String location_name = getIntent().getStringExtra("Location");
+//        Intent intent = getIntent();
+//        String location_name = intent.getStringExtra("Location");
+
+//        TextView text = (TextView)findViewById(R.id.abc);
+//        if (DemoClass.message == null) {
+//            text.setText("0");
+//        } else {
+//            text.setText(DemoClass.message);
+//        }
+
+        //------------------
+
+        mRef = new Firebase("https://cs2340-ab302.firebaseio.com/" + DemoClass.message);
+
+        mListView = (ListView)  findViewById(R.id.donationListView);
+
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mItemNames);
+
+        mListView.setAdapter(arrayAdapter);
+
+        mRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                String value = dataSnapshot.getValue(String.class);
+
+                mItemNames.add(dataSnapshot.getKey());
+
+                arrayAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
+
+
     }
-
 }
