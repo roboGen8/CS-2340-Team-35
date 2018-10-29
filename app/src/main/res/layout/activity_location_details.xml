@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="Location" />
+        android:text="Location"
+        style="@style/TitleTextView"
+        />
 
     <TextView
         android:layout_below="@id/location_detail_lbl"
@@ -32,7 +34,9 @@
         android:layout_alignParentBottom="false"
         android:layout_alignParentTop="false"
         android:layout_marginTop="20dp"
-        android:text="Coordinate" />
+        android:text="Coordinate"
+        style="@style/TitleTextView1"
+        />
 
     <TextView
         android:layout_below="@id/coordinate_detail_lbl"
@@ -51,7 +55,9 @@
         android:layout_alignParentBottom="false"
         android:layout_alignParentTop="false"
         android:layout_marginTop="20dp"
-        android:text="Address" />
+        android:text="Address"
+        style="@style/TitleTextView1"
+        />
 
     <TextView
         android:layout_below="@id/address_detail_lbl"
@@ -70,7 +76,9 @@
         android:layout_alignParentBottom="false"
         android:layout_alignParentTop="false"
         android:layout_marginTop="20dp"
-        android:text="Type" />
+        android:text="Type"
+        style="@style/TitleTextView1"
+        />
 
     <TextView
         android:layout_below="@id/type_detail_lbl"
@@ -89,7 +97,8 @@
         android:layout_alignParentBottom="false"
         android:layout_alignParentTop="false"
         android:layout_marginTop="20dp"
-        android:text="Phone" />
+        android:text="Phone"
+        style="@style/TitleTextView1"/>
 
     <TextView
         android:layout_below="@id/phone_detail_lbl"
@@ -108,7 +117,8 @@
         android:layout_alignParentBottom="false"
         android:layout_alignParentTop="false"
         android:layout_marginTop="20dp"
-        android:text="Web" />
+        android:text="Web"
+        style="@style/TitleTextView1"/>
 
     <TextView
         android:layout_below="@id/web_detail_lbl"
@@ -126,6 +136,7 @@
         android:layout_below="@+id/web_detail"
         android:layout_alignParentStart="true"
         android:onClick="onViewDonationsPressed"
-        android:text="View Donations" />
+        android:text="View Donations"
+        />
 
 </RelativeLayout>
