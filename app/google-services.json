@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "374239943301",
+    "firebase_url": "https://donationtracker-600f7.firebaseio.com",
+    "project_id": "donationtracker-600f7",
+    "storage_bucket": "donationtracker-600f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374239943301:android:f2c279a4977ebb47",
+        "android_client_info": {
+          "package_name": "com.example.ben.cs2340"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374239943301-s9albo90rnu3ben1uugmrr5ani2fk148.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ben.cs2340",
+            "certificate_hash": "2d7e3a86649943b770b107299f3689fa6469f4f9"
+          }
+        },
+        {
+          "client_id": "374239943301-fd5rbfiovonliqrp54jr5r51e4vsck8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKA5OvaFuBCdCM7fUDuRo3EQN2iM4_5_c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374239943301-fd5rbfiovonliqrp54jr5r51e4vsck8v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

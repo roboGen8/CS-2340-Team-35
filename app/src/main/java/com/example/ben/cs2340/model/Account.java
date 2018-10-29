@@ -3,12 +3,13 @@ package com.example.ben.cs2340.model;
 public class Account {
 
     private String _name;
-
     private String _username;
-
     private String _password;
-
     private Credentials _credentials;
+
+    public Account() {
+        // Default constructor required for calls to Firebase
+    }
 
     public Account(String username, String password, String name, Credentials credentials) {
         _username = username;
