@@ -6,31 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".controllers.DonationListActivity">
 
-    <ListView
-        android:id="@+id/donationListView"
-        android:layout_width="102dp"
-        android:layout_height="186dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/abc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="298dp"
-        android:layout_marginBottom="450dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <include layout="@layout/content_donation_list" />
 
 </android.support.constraint.ConstraintLayout>

@@ -4,13 +4,18 @@ import android.content.Intent;
 import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.ben.cs2340.DemoClass;
 import com.example.ben.cs2340.R;
+import com.example.ben.cs2340.model.DonationAdapter;
 import com.example.ben.cs2340.model.Location;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -25,6 +30,7 @@ public class DonationListActivity extends AppCompatActivity {
     private Firebase mRef;
 
     private ArrayList<String> mItemNames = new ArrayList<>();
+
 
     private ListView mListView;
 
@@ -55,10 +61,20 @@ public class DonationListActivity extends AppCompatActivity {
         mRef = new Firebase("https://cs2340-ab302.firebaseio.com/" + DemoClass.message);
 
         mListView = (ListView)  findViewById(R.id.donationListView);
-
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mItemNames);
-
+//
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mItemNames);
+//
         mListView.setAdapter(arrayAdapter);
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(view.getContext(), DonationDetailActivity.class);
+                view.getContext().startActivity(intent);
+            }
+        });
+
+
 
         mRef.addChildEventListener(new ChildEventListener() {
             @Override
@@ -68,6 +84,12 @@ public class DonationListActivity extends AppCompatActivity {
                 mItemNames.add(dataSnapshot.getKey());
 
                 arrayAdapter.notifyDataSetChanged();
+
+//                RecyclerView rvDonations = (RecyclerView) findViewById(R.id.rvDonations);
+//                DonationAdapter adapter = new DonationAdapter(mItemNames);
+//                rvDonations.setAdapter(adapter);
+//                rvDonations.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
             }
 
             @Override
@@ -90,7 +112,6 @@ public class DonationListActivity extends AppCompatActivity {
 
             }
         });
-
 
 
 
