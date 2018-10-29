@@ -7,34 +7,34 @@
     tools:context=".controllers.AddDonationToFirebase">
 
     <EditText
-        android:id="@+id/keyValue"
+        android:id="@+id/donation_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="85dp"
         android:layout_marginBottom="13dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="keyValue"
-        app:layout_constraintBottom_toTopOf="@+id/valueField"
+        android:text="Location"
+        app:layout_constraintBottom_toTopOf="@+id/donation_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/valueField"
+        android:id="@+id/donation_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="85dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="84dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="valueField"
+        android:text="Item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/keyValue" />
+        app:layout_constraintTop_toBottomOf="@+id/donation_location" />
 
     <Button
         android:id="@+id/addBtn"
@@ -42,9 +42,56 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="148dp"
         android:layout_marginEnd="148dp"
-        android:layout_marginBottom="206dp"
+        android:layout_marginBottom="84dp"
         android:text="addBtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/donation_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="81dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="88dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/donation_item" />
+
+    <EditText
+        android:id="@+id/donation_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="86dp"
+        android:layout_marginBottom="18dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Description"
+        app:layout_constraintBottom_toTopOf="@+id/donation_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/donation_price" />
+
+    <EditText
+        android:id="@+id/donation_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="89dp"
+        android:layout_marginBottom="29dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Category"
+        app:layout_constraintBottom_toTopOf="@+id/addBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/donation_description" />
 </android.support.constraint.ConstraintLayout>

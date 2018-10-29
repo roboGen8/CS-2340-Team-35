@@ -11,11 +11,15 @@ import com.firebase.client.Firebase;
 
 public class AddDonationToFirebase extends AppCompatActivity {
 
-    private EditText mValueField;
+    private EditText mDonation_Item;
     private Button mAddBtn;
 
     private Firebase mRootRef;
-    private EditText mKeyValue;
+    private EditText mDonation_Location;
+
+    private EditText mDonation_Price;
+    private EditText mDonation_Description;
+    private EditText mDonation_Category;
 
 
     @Override
@@ -23,23 +27,43 @@ public class AddDonationToFirebase extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_donation_to_firebase);
 
-        mRootRef = new Firebase("https://cs2340-ab302.firebaseio.com/Users");
-
-        mValueField = (EditText) findViewById(R.id.valueField);
+        mDonation_Item = (EditText) findViewById(R.id.donation_item);
         mAddBtn = (Button) findViewById(R.id.addBtn);
-        mKeyValue = (EditText) findViewById(R.id.keyValue);
+        mDonation_Location = (EditText) findViewById(R.id.donation_location);
+        mDonation_Price = (EditText) findViewById(R.id.donation_price);
+        mDonation_Description = (EditText) findViewById(R.id.donation_description);
+        mDonation_Category = (EditText) findViewById(R.id.donation_category);
+
+
 
 
 
         mAddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String value = mValueField.getText().toString();
-                String key = mKeyValue.getText().toString();
+                String locationStr = mDonation_Location.getText().toString();
+                String itemStr = mDonation_Item.getText().toString();
+                String priceStr = mDonation_Price.getText().toString();
+                String descriptionStr = mDonation_Description.getText().toString();
+                String categoryStr = mDonation_Category.getText().toString();
 
-                Firebase childRef = mRootRef.child(key);
+                mRootRef = new Firebase("https://cs2340-ab302.firebaseio.com/" + locationStr + "/" + itemStr);
 
-                childRef.setValue(value);
+                Firebase itemRef = mRootRef.child("Item");
+                itemRef.setValue(itemStr);
+
+                Firebase descriptionRef = mRootRef.child("Description");
+                descriptionRef.setValue(descriptionStr);
+
+                Firebase priceRef = mRootRef.child("Price");
+                priceRef.setValue(priceStr);
+
+                Firebase categoryRef = mRootRef.child("Category");
+                categoryRef.setValue(categoryStr);
+
+                Firebase locationRef = mRootRef.child("Location");
+                locationRef.setValue(locationStr);
+
 //                mRootRef.push().setValue(value);
             }
         });
