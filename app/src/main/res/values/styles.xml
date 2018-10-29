@@ -31,4 +31,9 @@
         <item name="android:textStyle">bold</item>
 
     </style>
+
+    <style name="LocDet">
+        <item name="android:textSize">15sp</item>
+
+    </style>
 </resources>
