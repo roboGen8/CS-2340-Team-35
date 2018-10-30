@@ -23,7 +23,13 @@ public class SearchDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_detail);
 
-        mRef = new Firebase("https://cs2340-ab302.firebaseio.com/Category/" + DemoClass.message);
+        if (DemoClass.message.indexOf('/') == -1) {
+            mRef = new Firebase("https://cs2340-ab302.firebaseio.com/Item/" + DemoClass.message);
+        } else {
+            mRef = new Firebase("https://cs2340-ab302.firebaseio.com/Category/" + DemoClass.message);
+        }
+//        mRef = new Firebase("https://cs2340-ab302.firebaseio.com/Item/" + DemoClass.message);
+
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mItemNames);
 
         final TextView tvItem = findViewById(R.id.item_detail);
@@ -42,7 +48,7 @@ public class SearchDetailActivity extends AppCompatActivity {
                 String key = dataSnapshot.getKey();
                 String value = dataSnapshot.getValue().toString();
                 if (key.equals("Item")) {
-                    tvItem.setText(DemoClass.message);
+                    tvItem.setText(value);
                 }
                 if (key.equals("Category")) {
                     tvCategory.setText(value);

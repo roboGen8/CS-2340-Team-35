@@ -32,7 +32,7 @@ public class SearchByItemNameActivity extends AppCompatActivity {
 
         DemoClass.message = DemoClass.message.replaceAll("[^a-zA-Z]", "");
 
-        mRef = new Firebase("https://cs2340-ab302.firebaseio.com/Item/" + DemoClass.message + "/");
+        mRef = new Firebase("https://cs2340-ab302.firebaseio.com/Item/");
 
         mListView =  findViewById(R.id.itemByItem);
 //
@@ -44,7 +44,7 @@ public class SearchByItemNameActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String mess = parent.getItemAtPosition(position).toString();
-                DemoClass.message = DemoClass.message + "/" + mess;
+                DemoClass.message = mess;
                 Intent intent = new Intent(view.getContext(), SearchDetailActivity.class);
                 view.getContext().startActivity(intent);
             }
@@ -55,8 +55,11 @@ public class SearchByItemNameActivity extends AppCompatActivity {
         mRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                String keyStr = dataSnapshot.getKey();
+                if (keyStr.contains(DemoClass.message)) {
+                    mItemNames.add(dataSnapshot.getKey());
+                }
 
-                mItemNames.add(dataSnapshot.getKey());
 //                mItemNames.add(DemoClass.message);
 
                 arrayAdapter.notifyDataSetChanged();
