@@ -15,6 +15,8 @@ public class AddDonationToFirebase extends AppCompatActivity {
     private Button mAddBtn;
 
     private Firebase mRootRef;
+    private Firebase mRootRef2;
+    private Firebase mRootRef3;
     private EditText mDonation_Location;
 
     private EditText mDonation_Price;
@@ -47,8 +49,11 @@ public class AddDonationToFirebase extends AppCompatActivity {
                 String descriptionStr = mDonation_Description.getText().toString();
                 String categoryStr = mDonation_Category.getText().toString();
 
-                mRootRef = new Firebase("https://cs2340-ab302.firebaseio.com/Location/" + locationStr + "/" + itemStr);
+                mRootRef = new Firebase("https://cs2340-ab302.firebaseio.com/Location/" + locationStr.replaceAll("[^a-zA-Z]", "") + "/" + itemStr);
+                mRootRef2 = new Firebase("https://cs2340-ab302.firebaseio.com/Category/" + categoryStr.replaceAll("[^a-zA-Z]", "") + "/" + itemStr);
+                mRootRef3 = new Firebase("https://cs2340-ab302.firebaseio.com/Item/" + itemStr.replaceAll("[^a-zA-Z]", ""));
 
+                //Under Location ----------------
                 Firebase itemRef = mRootRef.child("Item");
                 itemRef.setValue(itemStr);
 
@@ -64,7 +69,39 @@ public class AddDonationToFirebase extends AppCompatActivity {
                 Firebase locationRef = mRootRef.child("Location");
                 locationRef.setValue(locationStr);
 
-//                mRootRef.push().setValue(value);
+                //Under Category ---------------------
+                Firebase itemRef2 = mRootRef2.child("Item");
+                itemRef2.setValue(itemStr);
+
+                Firebase descriptionRef2 = mRootRef2.child("Description");
+                descriptionRef2.setValue(descriptionStr);
+
+                Firebase priceRef2 = mRootRef2.child("Price");
+                priceRef2.setValue(priceStr);
+
+                Firebase categoryRef2 = mRootRef2.child("Category");
+                categoryRef2.setValue(categoryStr);
+
+                Firebase locationRef2 = mRootRef2.child("Location");
+                locationRef2.setValue(locationStr);
+
+                //Under Item -----------------------------
+                Firebase itemRef3 = mRootRef3.child("Item");
+                itemRef3.setValue(itemStr);
+
+                Firebase descriptionRef3 = mRootRef3.child("Description");
+                descriptionRef3.setValue(descriptionStr);
+
+                Firebase priceRef3 = mRootRef3.child("Price");
+                priceRef3.setValue(priceStr);
+
+                Firebase categoryRef3 = mRootRef3.child("Category");
+                categoryRef3.setValue(categoryStr);
+
+                Firebase locationRef3 = mRootRef3.child("Location");
+                locationRef3.setValue(locationStr);
+
+
             }
         });
 

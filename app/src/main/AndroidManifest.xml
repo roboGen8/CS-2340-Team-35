@@ -54,7 +54,11 @@
             android:label="@string/title_activity_donation_detail"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".controllers.AddDonationToFirebase" />
-        <activity android:name=".controllers.DonationListActivity"></activity>
+        <activity android:name=".controllers.DonationListActivity" />
+        <activity android:name=".controllers.SearchActivity" />
+        <activity android:name=".controllers.SearchByCategoryActivity" />
+        <activity android:name=".controllers.SearchByItemNameActivity" />
+        <activity android:name=".controllers.SearchDetailActivity"></activity>
     </application>
 
 </manifest>
