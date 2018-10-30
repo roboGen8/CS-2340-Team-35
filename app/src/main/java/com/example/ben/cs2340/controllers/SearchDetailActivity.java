@@ -31,6 +31,7 @@ public class SearchDetailActivity extends AppCompatActivity {
         final TextView tvLocation = findViewById(R.id.location_detail);
         final TextView tvPrice = findViewById(R.id.price_detail);
         final TextView tvDescription = findViewById(R.id.description_detail);
+        final TextView tvTime = findViewById(R.id.timestamp_detail);
 
 //        tvItem.setText(DemoClass.message);
 
@@ -51,6 +52,9 @@ public class SearchDetailActivity extends AppCompatActivity {
                 }
                 if (key.equals("Price")) {
                     tvPrice.setText(value);
+                }
+                if (key.equals("Time")) {
+                    tvTime.setText(value);
                 }
                 if (key.equals("Description")) {
                     tvDescription.setText(value);

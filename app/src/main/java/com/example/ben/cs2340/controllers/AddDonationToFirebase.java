@@ -9,6 +9,9 @@ import android.widget.EditText;
 import com.example.ben.cs2340.R;
 import com.firebase.client.Firebase;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class AddDonationToFirebase extends AppCompatActivity {
 
     private EditText mDonation_Item;
@@ -48,6 +51,7 @@ public class AddDonationToFirebase extends AppCompatActivity {
                 String priceStr = mDonation_Price.getText().toString();
                 String descriptionStr = mDonation_Description.getText().toString();
                 String categoryStr = mDonation_Category.getText().toString();
+                String timeStr = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 
                 mRootRef = new Firebase("https://cs2340-ab302.firebaseio.com/Location/" + locationStr.replaceAll("[^a-zA-Z]", "") + "/" + itemStr);
                 mRootRef2 = new Firebase("https://cs2340-ab302.firebaseio.com/Category/" + categoryStr.replaceAll("[^a-zA-Z]", "") + "/" + itemStr);
@@ -62,6 +66,9 @@ public class AddDonationToFirebase extends AppCompatActivity {
 
                 Firebase priceRef = mRootRef.child("Price");
                 priceRef.setValue(priceStr);
+
+                Firebase timeRef = mRootRef.child("Time");
+                timeRef.setValue(timeStr);
 
                 Firebase categoryRef = mRootRef.child("Category");
                 categoryRef.setValue(categoryStr);
@@ -79,6 +86,9 @@ public class AddDonationToFirebase extends AppCompatActivity {
                 Firebase priceRef2 = mRootRef2.child("Price");
                 priceRef2.setValue(priceStr);
 
+                Firebase timeRef2 = mRootRef2.child("Time");
+                timeRef2.setValue(timeStr);
+
                 Firebase categoryRef2 = mRootRef2.child("Category");
                 categoryRef2.setValue(categoryStr);
 
@@ -95,13 +105,16 @@ public class AddDonationToFirebase extends AppCompatActivity {
                 Firebase priceRef3 = mRootRef3.child("Price");
                 priceRef3.setValue(priceStr);
 
+                Firebase timeRef3 = mRootRef3.child("Time");
+                timeRef3.setValue(timeStr);
+
                 Firebase categoryRef3 = mRootRef3.child("Category");
                 categoryRef3.setValue(categoryStr);
 
                 Firebase locationRef3 = mRootRef3.child("Location");
                 locationRef3.setValue(locationStr);
 
-
+                finish();
             }
         });
 
