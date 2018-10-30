@@ -8,10 +8,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.ben.cs2340.R;
-<<<<<<< HEAD
-import com.example.ben.cs2340.model.Account;
-=======
->>>>>>> 8fe5768339f8c6d25b573548415a08100b347747
 import com.example.ben.cs2340.model.LocationManager;
 
 import java.io.BufferedReader;
