@@ -92,8 +92,7 @@
                 android:id="@+id/register_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Register"
-                android:onClick="onRegisterPressed"/>
+                android:text="Register"/>
 
             <Button
                 android:id="@+id/register_cancel"

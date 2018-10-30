@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 import com.example.ben.cs2340.R;
+<<<<<<< HEAD
 import com.example.ben.cs2340.model.Account;
+=======
+>>>>>>> 8fe5768339f8c6d25b573548415a08100b347747
 import com.example.ben.cs2340.model.LocationManager;
-import com.example.ben.cs2340.model.LoginService;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,28 +20,21 @@ import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity:";
+
     static boolean firstCreate = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "Starting Main Activity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
-        Account a = LoginService.getInstance().getCurrentAccount();
-        setTitle("Welcome back " + a.getName());
         if (firstCreate) {
             firstCreate = false;
             try {
+                // Location data from the CSV is loaded in on startup, change this to Firebase later
                 BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open("LocationData.csv")));
                 LocationManager manager = LocationManager.getInstance();
                 manager.parseData(reader);
@@ -48,10 +44,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Logs out the current users and exits to the main screen
+     * @param view
+     */
     public void onLogoutPressed(View view) {
-        LoginService model = LoginService.getInstance();
-        //ask model to log out the current user
-        model.logout();
         //go back to login screen
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
