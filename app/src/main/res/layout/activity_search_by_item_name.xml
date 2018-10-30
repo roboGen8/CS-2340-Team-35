@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controllers.DonationListActivity">
+    tools:context=".controllers.SearchByItemNameActivity">
 
-    <include layout="@layout/content_donation_list" />
-
+    <ListView
+        android:id="@+id/itemByItem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </android.support.constraint.ConstraintLayout>

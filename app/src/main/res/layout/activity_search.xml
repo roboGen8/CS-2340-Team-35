@@ -22,45 +22,39 @@
     </android.support.design.widget.AppBarLayout>
 
     <!--<android.support.design.widget.FloatingActionButton-->
-        <!--android:id="@+id/fab"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="bottom|end"-->
-        <!--android:layout_margin="@dimen/fab_margin"-->
-        <!--app:srcCompat="@android:drawable/ic_dialog_email" />-->
+    <!--android:id="@+id/fab"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="bottom|end"-->
+    <!--android:layout_margin="@dimen/fab_margin"-->
+    <!--app:srcCompat="@android:drawable/ic_dialog_email" />-->
+
+    <EditText
+        android:id="@+id/categorySearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/location_button"
+        android:id="@+id/searchByCategoryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onLocationButtonPressed"
-        android:text="Locations" />
-    <Button
-        android:id="@+id/add_donation_button"
+        android:onClick="onSearchByCategoryPressed"
+        android:text="Search by Category" />
+
+    <EditText
+        android:id="@+id/itemNameSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onMainAddDonationPressed"
-        android:text="Add Donation"/>
+        android:ems="10"
+        android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/logout_button"
+        android:id="@+id/searchByItemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onLogoutPressed"
-        android:text="Logout" />
-
-    <Button
-        android:id="@+id/addDonationButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onAddDonationToFirebasePressed"
-        android:text="ADD DONATION TO FIREBASES" />
-
-    <Button
-        android:id="@+id/searchButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onSearchPressed"
-        android:text="Search" />
+        android:onClick="onSearchByItemNamePressed"
+        android:text="Search by Item Name" />
 
 </LinearLayout>

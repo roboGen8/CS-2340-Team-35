@@ -26,14 +26,14 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHo
         public ViewHolder(View itemView) {
             super(itemView);
 
-            nameTextView = (TextView) itemView.findViewById(R.id.contact_name);
-            detailsButton = (Button) itemView.findViewById(R.id.message_button);
+            nameTextView = (TextView) itemView.findViewById(R.id.item_name);
+            detailsButton = (Button) itemView.findViewById(R.id.details_button);
 
         }
     }
 
-    private List<Donation> donations;
-    public DonationAdapter(List<Donation> list) {
+    private List<String> donations;
+    public DonationAdapter(List<String> list) {
         donations = list;
     }
 
@@ -54,11 +54,11 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHo
     @Override
     public void onBindViewHolder(DonationAdapter.ViewHolder viewHolder, int position) {
         // Get the data model based on position
-        final Donation donation = donations.get(position);
+        final String donation = donations.get(position);
 
         // Set item views based on your views and data model
         TextView textView = viewHolder.nameTextView;
-        textView.setText(donation.get_shortDescription());
+        textView.setText(donation);
         Button button = viewHolder.detailsButton;
         button.setText("Details");
         button.setOnClickListener(new View.OnClickListener() {

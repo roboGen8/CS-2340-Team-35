@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".controllers.DonationListActivity">
 
-    <include layout="@layout/content_donation_list" />
-
+    <ListView
+        android:id="@+id/itemByCategory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </android.support.constraint.ConstraintLayout>

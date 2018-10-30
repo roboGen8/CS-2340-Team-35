@@ -1,17 +1,23 @@
 package com.example.ben.cs2340.controllers;
 
 import android.content.Intent;
+import android.icu.text.IDNA;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.ben.cs2340.DemoClass;
 import com.example.ben.cs2340.R;
 import com.example.ben.cs2340.model.Location;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 
 import org.w3c.dom.Text;
 
 public class LocationDetailActivity extends AppCompatActivity {
+
+    public String _name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +27,7 @@ public class LocationDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Location location = intent.getParcelableExtra("Location");
 
-        String _name = location.getName();
+        _name = location.getName();
         float _latitude = location.getLatitude();
         float _longitude = location.getLongitude();
         String _address = location.getAddress();
@@ -52,10 +58,18 @@ public class LocationDetailActivity extends AppCompatActivity {
     }
 
     public void onViewDonationsPressed(View view) {
-        Intent intent = getIntent();
-        Location location = intent.getParcelableExtra("Location");
-        Intent newIntent = new Intent(this, DonationListActivity.class);
-        intent.putExtra("Location", location);
-        startActivity(newIntent);
+        DemoClass.message = _name;
+        Intent intent = new Intent(getApplicationContext(), DonationListActivity.class);
+        startActivity(intent);
     }
+
+//    button.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+////                openLocationDetail(v);
+//            Intent intent = new Intent(v.getContext(), LocationDetailActivity.class);
+//            intent.putExtra("Location", location);
+//            v.getContext().startActivity(intent);
+//        }
+//    });
 }

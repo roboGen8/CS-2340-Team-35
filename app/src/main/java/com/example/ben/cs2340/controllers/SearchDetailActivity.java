@@ -1,11 +1,7 @@
 package com.example.ben.cs2340.controllers;
 
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -18,17 +14,22 @@ import com.firebase.client.FirebaseError;
 
 import java.util.ArrayList;
 
-public class DonationDetailActivity extends AppCompatActivity {
-
+public class SearchDetailActivity extends AppCompatActivity {
     private Firebase mRef;
 
     private ArrayList<String> mItemNames = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_donation_detail);
+        setContentView(R.layout.activity_search_detail);
 
-        mRef = new Firebase("https://cs2340-ab302.firebaseio.com/Location/" + DemoClass.message);
+        if (DemoClass.message.indexOf('/') == -1) {
+            mRef = new Firebase("https://cs2340-ab302.firebaseio.com/Item/" + DemoClass.message);
+        } else {
+            mRef = new Firebase("https://cs2340-ab302.firebaseio.com/Category/" + DemoClass.message);
+        }
+//        mRef = new Firebase("https://cs2340-ab302.firebaseio.com/Item/" + DemoClass.message);
+
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mItemNames);
 
         final TextView tvItem = findViewById(R.id.item_detail);
@@ -89,12 +90,5 @@ public class DonationDetailActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
     }
-
 }
