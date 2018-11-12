@@ -61,6 +61,31 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         mCredentialsField.setAdapter(adapter);
     }
 
+    public boolean verifyEmailAndPass(String email, String pass) {
+
+
+        if (!email.contains("@")) {
+            return false;
+        }
+
+
+        if (pass.length() < 6) {
+            return false;
+        }
+
+
+        if (email.length() < 3) {
+            return false;
+        }
+
+
+        if (!email.contains(".")) {
+            return false;
+        }
+
+        return true;
+    }
+
     private void registerUser(String email, String pass, String creds) {
 
         Log.d(TAG, email.toString());
