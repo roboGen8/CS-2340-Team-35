@@ -57,11 +57,4 @@
         android:onClick="onSearchPressed"
         android:text="Search" />
 
-    <Button
-        android:id="@+id/mapButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onMapPressed"
-        android:text="Google Maps" />
-
 </LinearLayout>
