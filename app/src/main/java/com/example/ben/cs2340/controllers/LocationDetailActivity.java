@@ -1,18 +1,14 @@
 package com.example.ben.cs2340.controllers;
 
 import android.content.Intent;
-import android.icu.text.IDNA;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.ben.cs2340.DemoClass;
 import com.example.ben.cs2340.R;
 import com.example.ben.cs2340.model.Location;
-import com.google.android.gms.ads.identifier.AdvertisingIdClient;
-
-import org.w3c.dom.Text;
 
 public class LocationDetailActivity extends AppCompatActivity {
 
@@ -56,6 +52,7 @@ public class LocationDetailActivity extends AppCompatActivity {
         TextView tvWeb = findViewById(R.id.web_detail);
         tvWeb.setText("" + _website + "");
     }
+
 
     public void onViewDonationsPressed(View view) {
         DemoClass.message = _name;
