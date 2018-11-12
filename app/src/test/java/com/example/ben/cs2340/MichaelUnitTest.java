@@ -27,7 +27,7 @@ import org.mockito.Mock;
 
 import java.util.concurrent.Executor;
 
-public class ExampleUnitTest {
+public class MichaelUnitTest {
 
     String badEmail;
     String badPass;
