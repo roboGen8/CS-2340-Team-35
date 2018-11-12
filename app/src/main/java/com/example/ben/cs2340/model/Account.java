@@ -48,6 +48,15 @@ public class Account {
 
     public boolean checkPassword(String pass) {return _password.equals(pass);}
 
+    public boolean isValid() {
+        boolean res = true;
+        if (_username == null || _password == null || _name == null || _credentials == null) {
+            res = false;
+        }
+        return res;
+    }
+
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
