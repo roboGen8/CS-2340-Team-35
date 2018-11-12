@@ -26,7 +26,16 @@ public class DonationManager {
     }
 
     public boolean addDonation(Donation donation) {
+        if (donation == null) {
+            return false;
+        }
         Location location = donation.get_location();
-        return _donations.get(location).add(donation);
+        if (!_donations.get(location).contains(donation)) {
+            _donations.get(location).add(donation);
+            return true;
+        } else {
+            //to implement some sort of inventory number of an item later
+            return false;
+        }
     }
 }
