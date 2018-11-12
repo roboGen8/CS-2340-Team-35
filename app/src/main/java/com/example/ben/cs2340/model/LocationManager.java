@@ -35,6 +35,11 @@ public class LocationManager {
         return _locations;
     }
 
+    public void addLocation(Location location) {
+        _locations.add(location);
+        _nameMap.put(location.getName(), location);
+    }
+
     public HashMap<String, Location> getMap() {
         return _nameMap;
     }
